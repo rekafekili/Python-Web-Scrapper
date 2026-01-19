@@ -1,4 +1,12 @@
-a = 2
-b = 3
-c = a + b
-print(c)
+# String
+my_name = "SeongYun Cho"
+
+print(my_name)
+
+# Boolean
+isLive = True
+
+if (isLive):
+    print("Alive")
+else:
+    print("Dead")
