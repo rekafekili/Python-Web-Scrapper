@@ -1,13 +1,22 @@
-age = int(input("How old are you? "))
+# BLUEPRINT | DONT EDIT
 
-print("user answer :", age)
-print("user input type :", type(age))
+import requests
 
-if age < 18:
-    print("You can't drink.") 
-elif age >= 18 and age <= 35:
-    print("You drink beer!")
-elif age == 60 or age == 70:
-    print("Birthday party!")
-else:
-    print("Go ahead!")
+movie_ids = [
+    238, 680, 550, 185, 641, 515042, 152532, 120467, 872585, 906126, 840430
+]
+
+# /BLUEPRINT
+
+# 👇🏻 YOUR CODE 👇🏻:
+baseUrl =  "https://nomad-movies.nomadcoders.workers.dev/movies/"
+
+print("Movie List")
+for i in movie_ids:
+    endUrl = f"{baseUrl}{i}"
+    response = requests.get(endUrl)
+    data = response.json()
+    print(f"Title: {data["title"]}\nOverview: {data["overview"]}\nVoteAvg: {data["vote_average"]}")
+    print("========================================================================")
+
+# /YOUR CODE
