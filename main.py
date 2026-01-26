@@ -1,22 +1,12 @@
-# BLUEPRINT | DONT EDIT
+from random import randint
 
-import requests
+user_choice = int(input("Choose number:"))
+pc_choice = randint(10, 50)
 
-movie_ids = [
-    238, 680, 550, 185, 641, 515042, 152532, 120467, 872585, 906126, 840430
-]
+if user_choice == pc_choice:
+    print("You won!")
+elif user_choice > pc_choice:
+    print("Lower! Computer chose", pc_choice)
+elif user_choice < pc_choice:
+    print("Higher! Computer chose", pc_choice)
 
-# /BLUEPRINT
-
-# 👇🏻 YOUR CODE 👇🏻:
-baseUrl =  "https://nomad-movies.nomadcoders.workers.dev/movies/"
-
-print("Movie List")
-for i in movie_ids:
-    endUrl = f"{baseUrl}{i}"
-    response = requests.get(endUrl)
-    data = response.json()
-    print(f"Title: {data["title"]}\nOverview: {data["overview"]}\nVoteAvg: {data["vote_average"]}")
-    print("========================================================================")
-
-# /YOUR CODE
