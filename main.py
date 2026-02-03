@@ -1,6 +1,20 @@
-daysTuple = ("Mon", "Tue", "Wed")
+# Dictionary
 
-# List와 다른 점 : Tuple은 변경이 불가능함. (Immutable Sequence)
+player = {"name": "nico", "age": 12, "alive": True, "fav_food": ["Pizza", "Hamburger"]}
 
-print(daysTuple[0])
-print(daysTuple[-1])
+print(player)
+print(player.keys())
+print(player.values())
+print(player.items())
+print(player.get("name"))
+print(player.get("fav_movie"))
+print(player["fav_food"])
+
+player.pop("age")
+print(player)
+
+player["age"] = 12
+print(player)
+
+player["fav_food"].append("Noodles")
+print(player)
