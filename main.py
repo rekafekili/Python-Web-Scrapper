@@ -9,8 +9,17 @@ websites = (
     "https://tiktok.com",
 )
 
+results = {}
+
 for website in websites:
     if not website.startswith("https://"):
-        # print("Have to fix", website)
         website = f"https://{website}"
-    print(website)
+    response = get(website)
+    if response.status_code == 200:
+        # print(f"{website} is OK")
+        results[website] = True
+    else:
+        # print(f"{website} is not OK")
+        results[website] = False
+
+print(results)
