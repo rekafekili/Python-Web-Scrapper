@@ -1,5 +1,14 @@
 # For Loops
-websites = ("google.com", "airbnb.com", "twitter.com", "facebook.com", "tiktok.com")
+websites = (
+    "google.com",
+    "https://airbnb.com",
+    "twitter.com",
+    "https://facebook.com",
+    "https://tiktok.com",
+)
 
 for website in websites:
-    print("Website:", website)
+    if not website.startswith("https://"):
+        # print("Have to fix", website)
+        website = f"https://{website}"
+    print(website)
