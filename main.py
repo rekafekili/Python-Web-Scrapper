@@ -1,3 +1,5 @@
+from requests import get
+
 # For Loops
 websites = (
     "google.com",
