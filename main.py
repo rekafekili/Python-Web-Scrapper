@@ -1,15 +1,13 @@
-# person = {"name": "Nico", "xp": 1000, "team": "Team X"}
+class Puppy:
+    def __init__(self):
+        # print("Puppy is born")
+        self.name = "Ruffus"
+        self.age = 6
+        self.breed = "Beagle"
 
 
-def create_player(name, xp, team):
-    return {"name": name, "xp": xp, "team": team}
+ruffus = Puppy()
 
-
-def introduct_player(player):
-    name = player["name"]
-    team = player["team"]
-    print(f"Hello! My name is {name} and I play for {team}")
-
-
-person = create_player("nico", 1500, "Team Y")
-introduct_player(person)
+print(ruffus.name)
+print(ruffus.age)
+print(ruffus.breed)
