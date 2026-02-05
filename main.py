@@ -1,13 +1,15 @@
 class Puppy:
-    def __init__(self):
+    def __init__(self, name, breed):
         # print("Puppy is born")
-        self.name = "Ruffus"
+        self.name = name
         self.age = 6
-        self.breed = "Beagle"
+        self.breed = breed
+
+    def __str__(self):
+        return f"{self.breed} puppy named {self.name}."
 
 
-ruffus = Puppy()
+ruffus = Puppy(name="Ruffus", breed="Beagle")
+bibi = Puppy(name="Bibi", breed="Dalmatian")
 
-print(ruffus.name)
-print(ruffus.age)
-print(ruffus.breed)
+print(bibi, ruffus)
