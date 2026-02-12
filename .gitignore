@@ -1,3 +1,5 @@
+.vscode
+
 # 가상환경 (절대 커밋 금지)
 .venv/
 venv/
