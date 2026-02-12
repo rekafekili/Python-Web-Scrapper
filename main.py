@@ -1,18 +1,21 @@
 import requests
-
-# import cloudscraper
 from bs4 import BeautifulSoup
 
-# scraper = cloudscraper.create_scraper()
 url = "https://weworkremotely.com/remote-full-time-jobs"
 
-# response = scraper.get(url)
 response = requests.get(url)
-
-# print(response.content)
 
 soup = BeautifulSoup(response.content, "html.parser")
 
-jobs = soup.find("section", class_="jobs").find_all("li")
+jobTags = soup.find("section", class_="jobs").find_all("li")[:-1]
 
-print(jobs)
+for jobTag in jobTags:
+    title = jobTag.find("h3").string.strip()
+    region = jobTag.find("p", class_="new-listing__company-headquarters").get_text(
+        strip=True
+    )
+    company = jobTag.find("p", class_="new-listing__company-name").get_text(strip=True)
+    print(title)
+    print(region)
+    print(company)
+    print("================")
