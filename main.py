@@ -13,40 +13,43 @@ browser = p.chromium.launch(headless=False)
 
 page = browser.new_page()
 
-page.goto("https://www.wanted.co.kr/")
+page.goto(
+    "https://www.wanted.co.kr/search?query=flutter&search_method=popular&tab=position"
+)
 
-sleep7()
+# sleep7()
 
-page.click("button.Aside_searchButton__Ib5Dn")
+# page.click("button.Aside_searchButton__Ib5Dn")
 
-sleep7()
+# sleep7()
 
-page.get_by_placeholder("검색어를 입력해 주세요.").fill("flutter")
+# page.get_by_placeholder("검색어를 입력해 주세요.").fill("flutter")
 
-sleep7()
+# sleep7()
 
-page.keyboard.down("Enter")
+# page.keyboard.down("Enter")
 
-sleep7()
+# sleep7()
 
-page.click("a#search_tab_position")
+# page.click("a#search_tab_position")
 
-for i in range(4):
-    sleep7()
-    page.keyboard.down("End")
+# for i in range(4):
+#     sleep7()
+#     page.keyboard.down("End")
 
-sleep7()
+# sleep7()
 
 content = page.content()
 
 p.stop()
 
 soup = BeautifulSoup(content, "html.parser")
+jobs_db = []
 
 jobs = soup.find_all("div", class_="JobCard_container__zQcZs")
 
 for job in jobs:
-    link = job.find("a")["href"]
+    link = f"https://www.wanted.co.kr{job.find('a')['href']}"
     title = job.find("strong", class_="JobCard_title___kfvj")
     company_name = job.find(
         "span",
@@ -57,3 +60,13 @@ for job in jobs:
         class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l wds-nkj4w6",
     )
     reward = job.find("span", class_="JobCard_reward__oCSIQ")
+    job = {
+        "title": title.string,
+        "company_name": company_name.string,
+        "location": location.string,
+        "reward": reward.string,
+    }
+    jobs_db.append(job)
+
+print(f"Jobs DB length:", len(jobs_db))
+print(jobs_db)
