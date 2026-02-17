@@ -42,3 +42,18 @@ content = page.content()
 p.stop()
 
 soup = BeautifulSoup(content, "html.parser")
+
+jobs = soup.find_all("div", class_="JobCard_container__zQcZs")
+
+for job in jobs:
+    link = job.find("a")["href"]
+    title = job.find("strong", class_="JobCard_title___kfvj")
+    company_name = job.find(
+        "span",
+        class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__company__ByVLu wds-nkj4w6",
+    )
+    location = job.find(
+        "span",
+        class_="CompanyNameWithLocationPeriod_CompanyNameWithLocationPeriod__location__4_w0l wds-nkj4w6",
+    )
+    reward = job.find("span", class_="JobCard_reward__oCSIQ")
