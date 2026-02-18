@@ -17,28 +17,6 @@ page.goto(
     "https://www.wanted.co.kr/search?query=flutter&search_method=popular&tab=position"
 )
 
-# sleep7()
-
-# page.click("button.Aside_searchButton__Ib5Dn")
-
-# sleep7()
-
-# page.get_by_placeholder("검색어를 입력해 주세요.").fill("flutter")
-
-# sleep7()
-
-# page.keyboard.down("Enter")
-
-# sleep7()
-
-# page.click("a#search_tab_position")
-
-# for i in range(4):
-#     sleep7()
-#     page.keyboard.down("End")
-
-# sleep7()
-
 content = page.content()
 
 p.stop()
