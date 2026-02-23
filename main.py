@@ -1,10 +1,4 @@
-# from assignments.wanted_scrapper import WantedScrapper
-
-# keywordInput = input("Enter a keyword: ")
-# scrapper = WantedScrapper(keywordInput)
-# scrapper.start()
-
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask("JobScrapper")
 
@@ -12,7 +6,12 @@ app = Flask("JobScrapper")
 # @ : decorator
 @app.route("/")
 def home():
-    return "hey there!"
+    return render_template("home.html", name="nico")
+
+
+@app.route("/hello")
+def hello():
+    return "hello you!"
 
 
 app.run()
