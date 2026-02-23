@@ -6,12 +6,12 @@ app = Flask("JobScrapper")
 # @ : decorator
 @app.route("/")
 def home():
-    return render_template("home.html", name="nico")
+    return render_template("home.html")
 
 
-@app.route("/hello")
-def hello():
-    return "hello you!"
+@app.route("/search")
+def search():
+    return render_template("search.html")
 
 
 app.run()
