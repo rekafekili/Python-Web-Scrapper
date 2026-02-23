@@ -55,7 +55,7 @@ class WantedScrapper:
         return jobs_db
 
     def exportToCSV(self, jobs: list[dict]) -> None:
-        file = open(f"./artifacts/{self.keyword}_jobs.csv", mode="w")
+        file = open(f"./artifacts/{self.keyword}_jobs_downloaded.csv", mode="w")
         writer = csv.writer(file)
         writer.writerow(jobs[0].keys())
 
