@@ -3,6 +3,8 @@ from assignments.wanted_scrapper import WantedScrapper
 
 app = Flask("JobScrapper")
 
+db = {}
+
 
 # @ : decorator
 @app.route("/")
@@ -13,10 +15,14 @@ def home():
 @app.route("/search")
 def search():
     keyword = request.args.get("keyword")
-    ws = WantedScrapper(keyword)
-    pageContent = ws.getPageContent()
-    jobDb = ws.scrapeContent(pageContent)
-    return render_template("search.html", keyword=keyword, jobDb=jobDb)
+    if keyword in db:
+        jobs = db[keyword]
+    else:
+        ws = WantedScrapper(keyword)
+        pageContent = ws.getPageContent()
+        jobs = ws.scrapeContent(pageContent)
+        db[keyword] = jobs
+    return render_template("search.html", keyword=keyword, jobDb=jobs)
 
 
 app.run()
