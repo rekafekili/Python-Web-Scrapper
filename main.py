@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+
 
 app = Flask("JobScrapper")
 
@@ -11,7 +12,8 @@ def home():
 
 @app.route("/search")
 def search():
-    return render_template("search.html")
+    keyword = request.args.get("keyword")
+    return render_template("search.html", keyword=keyword)
 
 
 app.run()
