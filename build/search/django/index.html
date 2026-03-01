@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Scrapper - django</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        /* 3분할 화면에서 테이블 가독성을 위한 스타일 커스텀 */
+        table {
+            font-size: 0.8rem;
+            display: block;
+            overflow-x: auto; /* 테이블이 넘칠 경우 가로 스크롤 허용 */
+            white-space: nowrap;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        article {
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="container-fluid">
+        <hgroup>
+            <h1>Search Results for "django"</h1>
+        </hgroup>
+
+        <div class="grid">
+            
+            <article>
+                <h3>Berlin Startup</h3>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>WeWorkRemotely</h3>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                        <tr>
+                            <td><strong> Senior Django Developer </strong></td>
+                            <td>Proxify AB</td>
+                            <td><a href="/remote-jobs/proxify-ab-senior-django-developer-2" target="_blank">View</a></td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Web3 Career</h3>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                </table>
+            </article>
+
+        </div>
+    </main>
+</body>
+</html>

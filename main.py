@@ -1,9 +1,9 @@
 from flask_frozen import Freezer
 from assignments.assign09.assign09_flask import app
 
-# 빌드 설정 추가
+# 1. 확장자 미매칭 경고 해결 및 폴더 구조화 설정
 app.config["FREEZER_DESTINATION_IGNORE_DOTTED"] = True
-# 쿼리 스트링을 사용하는 경우 파일명 생성을 돕는 설정
+# 2. (선택) 로컬에서 HTML 파일을 직접 열 때 경로가 깨지지 않게 함
 app.config["FREEZER_RELATIVE_URLS"] = True
 
 freezer = Freezer(app)
