@@ -10,9 +10,9 @@
     <main class="container">
         <h1>Job Scrapper</h1>
         <h4>What job do you want?</h4>
-        <form action="/search">
-            <input type="text" name="keyword" placeholder="Write one keyword please"/>
-            <button>Search</button>
+        <form onsubmit="event.preventDefault(); window.location.href='/search/' + document.getElementById('keyword').value;">
+            <input type="text" id="keyword" placeholder="Search for jobs (e.g. python)" required>
+            <button type="submit">Search</button>
         </form>
     </main>
 </body>
