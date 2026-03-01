@@ -3,39 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Scrapper</title>
+    <title>Job Scrapper - {{keyword}}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        /* 3분할 화면에서 테이블 가독성을 위한 스타일 커스텀 */
+        table {
+            font-size: 0.8rem;
+            display: block;
+            overflow-x: auto; /* 테이블이 넘칠 경우 가로 스크롤 허용 */
+            white-space: nowrap;
+        }
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+        article {
+            padding: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <main class="container">
+    <main class="container-fluid">
         <hgroup>
             <h1>Search Results for "{{keyword}}"</h1>
-            <a href="/export?keyword={{keyword}}" target="_blank">Export</a>
         </hgroup>
-        <table role="grid">
-            <thead>
-                <tr>
-                    <th>title</th>
-                    <th>Company</th>
-                    <th>Location</th>
-                    <th>Reward</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for job in jobDb %}
-                <tr>
-                    <td>{{job.title}}</span>
-                    <td>{{job.company_name}}</span>
-                    <td>{{job.location}}</span>
-                    <td>{{job.reward}}</span>
-                    <td><a href="{{job.link}}" target="_blank">Apply Now</a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
 
+        <div class="grid">
+            
+            <article>
+                <h3>Berlin Startup</h3>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for job in berlinJobs %}
+                        <tr>
+                            <td><strong>{{job.title}}</strong></td>
+                            <td>{{job.company}}</td>
+                            <td><a href="{{job.link}}" target="_blank">View</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </article>
 
+            <article>
+                <h3>WeWorkRemotely</h3>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for job in weworkJobs %}
+                        <tr>
+                            <td><strong>{{job.title}}</strong></td>
+                            <td>{{job.company}}</td>
+                            <td><a href="{{job.link}}" target="_blank">View</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+
+            <article>
+                <h3>Web3 Career</h3>
+                <table role="grid">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Company</th>
+                            <th>Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for job in w3cJobs %}
+                        <tr>
+                            <td><strong>{{job.title}}</strong></td>
+                            <td>{{job.company}}</td>
+                            <td><a href="{{job.link}}" target="_blank">View</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </article>
+
+        </div>
     </main>
 </body>
 </html>
